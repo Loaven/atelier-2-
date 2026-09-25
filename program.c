@@ -6,22 +6,24 @@ int scoreOrdi = 0;
 int manche = 1;
 int choixJoueur;
 int choixOrdi;
-printf("=== PIERRE - FEUILLE - CISEAUX (7 Manches) ===\n");
-printf("Règles : 1 = Pierre, 2 = Feuille, 3 = Ciseaux\n\n");
+printf("=== PIERRE - FEUILLE - CISEAUX - LEZARD - SPOCK===\n");
+printf("Règles : 1 = Pierre, 2 = Feuille, 3 = Ciseaux, 4 = Lezard, 5 = Spock\n\n");
 while (manche <= 7 && abs(scoreJoueur - scoreOrdi) < 2) {
 printf("--- Manche %d/7 ---\n", manche);
 // Saisie du joueur
-printf("Votre choix (1, 2 ou 3) : ");
+printf("Votre choix (1, 2, 3, 4 ou 5) : ");
 scanf("%d", &choixJoueur);
-// Choix aléatoire de l'ordinateur (1, 2 ou 3)
-choixOrdi = (rand() % 3) + 1;
+// Choix aléatoire de l'ordinateur (1, 2, 3, 4 ou 5)
+choixOrdi = (rand() % 5) + 1;
 printf("L'ordinateur a choisi : %d\n", choixOrdi);
 // Détermination du gagnant de la manche
 if (choixJoueur == choixOrdi) {
 printf("Égalité !\n");
-} else if ((choixJoueur == 1 && choixOrdi == 3) ||
-(choixJoueur == 2 && choixOrdi == 1) ||
-(choixJoueur == 3 && choixOrdi == 2)) {
+} else if ((choixJoueur == 1 && choixOrdi == 3 || choixOrdi == 4) ||
+(choixJoueur == 2 && choixOrdi == 1 || choixOrdi == 5) ||
+(choixJoueur == 3 && choixOrdi == 2 || choixOrdi == 4) ||
+(choixJoueur == 4 && choixOrdi == 2 || choixOrdi == 5) ||
+(choixJoueur == 5 && choixOrdi == 1 || choixOrdi == 3)) {
 printf("Vous gagnez cette manche !\n");
 scoreJoueur = scoreJoueur + 1;
 } else {

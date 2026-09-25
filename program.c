@@ -9,12 +9,20 @@ int main()
     int choixOrdi;
     printf("=== PIERRE - FEUILLE - CISEAUX - LEZARD - SPOCK===\n");
     printf("Règles : 1 = Pierre, 2 = Feuille, 3 = Ciseaux, 4 = Lezard, 5 = Spock\n\n");
-    while (manche <= 7 && abs(scoreJoueur - scoreOrdi) < 2)
-    {
-        printf("--- Manche %d/7 ---\n", manche);
-        // Saisie du joueur
-        printf("Votre choix (1, 2, 3, 4 ou 5) : ");
-        scanf("%d", &choixJoueur);
+    while (manche <= 7 && abs(scoreJoueur - scoreOrdi) < 2){
+      printf("--- Manche %d ---\n", manche);
+       
+      do {
+            printf("Votre choix (1, 2, 3, 4 ou 5) : ");
+            scanf("%d", &choixJoueur);
+
+            if (choixJoueur < 1 || choixJoueur > 5) {
+                printf("Choix invalide ! Veuillez reessayer.\n");
+            }
+        } while (choixJoueur < 1 || choixJoueur > 5);
+       
+       
+ 
         // Choix aléatoire de l'ordinateur (1, 2, 3, 4 ou 5)
         choixOrdi = (rand() % 5) + 1;
         printf("L'ordinateur a choisi : %d\n", choixOrdi);
